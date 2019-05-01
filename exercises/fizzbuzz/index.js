@@ -12,6 +12,46 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+//my solutiom
+function fizzBuzz(n) {
+    for (let i = 1; i <= n; i++) {
+        let modulo3 = i % 3 === 0;
+        let modulo5 = i % 5 === 0;
+        
+        if (modulo3 && modulo5) {
+            console.log('fizzbuzz');
+        }
+        else if (modulo3) {
+            console.log('fizz');
+        }
+        else if (modulo5) {
+            console.log('buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+
+//stephen's solution
+// function fizzBuzz(n) {
+//     for (let i = 1; i <= n; i++) {
+//         //is i multiple of 3 and 5?
+//         if (i % 3 === 0 && i % 5 === 0) {
+//             console.log('fizzbuzz');
+//         }
+//         else if (i % 3 === 0) {
+//             //is i multiple of 3?
+//             console.log('fizz');
+//         }
+//         else if (i % 5 === 0) {
+//             //is i multiple of 5?
+//             console.log('buzz');
+//         }
+//         else {
+//             console.log(i);
+//         }
+//     }
+// }
 
 module.exports = fizzBuzz;
