@@ -14,6 +14,83 @@
 
 const Stack = require('./stack');
 
-class Queue {}
+//my solution
+// class Queue {
+//     constructor() {
+//         this.stackOne = new Stack();
+//         this.stackTwo = new Stack();
+
+//         this.popValue = null;
+//         this.peekValue = null;
+//     }
+
+//     fillStack(fromStack, toStack) {
+//         while (fromStack.peek()) {
+//             toStack.push(fromStack.pop());
+//         }
+        
+//         return toStack;
+//     };
+
+//     add(record) {
+//         this.stackOne.push(record);
+//     }
+
+//     remove() {
+//         this.fillStack(this.stackOne, this.stackTwo);
+//         this.popValue = this.stackTwo.pop();
+//         this.fillStack(this.stackTwo, this.stackOne);
+
+//         return this.popValue;
+//     }
+
+//     peek() {
+//         this.fillStack(this.stackOne, this.stackTwo);
+//         this.peekValue = this.stackTwo.peek();
+//         this.fillStack(this.stackTwo, this.stackOne);
+
+//         return this.peekValue;
+//     }
+// }
+
+//stephen's solution
+class Queue {
+    constructor() {
+        this.first = new Stack();
+        this.second = new Stack();
+    }
+
+    add(record) {
+        this.first.push(record);
+    }
+
+    remove() {
+        while (this.first.peek()) {
+            this.second.push(this.first.pop());
+        }
+
+        const record = this.second.pop();
+
+        while (this.second.peek()) {
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+
+    peek() {
+        while (this.first.peek()) {
+            this.second.push(this.first.pop());
+        }
+
+        const record = this.second.peek();
+
+        while (this.second.peek()) {
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+}
 
 module.exports = Queue;
