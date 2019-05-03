@@ -18,6 +18,7 @@ class Queue {
   }
 
   peek() {
+    //stephen returns this.data[this.data.length - 1] without the if
     return (this.data.length > 0) ? this.data[this.data.length - 1] : null;
   }
 }
